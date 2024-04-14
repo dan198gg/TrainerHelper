@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TrainerHelper</string>
+    <string name="answerTheGroupOfMuscules">Выберите группу мышц</string>
+    <string name="addTrain">Добавить упражнение</string>
 </resources>
