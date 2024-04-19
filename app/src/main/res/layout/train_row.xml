@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:weightSum="1"
+    android:scrollbars="horizontal"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
     >
 
     <androidx.cardview.widget.CardView
@@ -22,12 +23,12 @@
 
             <ImageView
                 android:id="@+id/imageTrain"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:layout_marginStart="84dp"
                 android:layout_marginTop="64dp"
                 android:layout_marginEnd="84dp"
-                android:src="@drawable/ic_launcher_background"
+                tools:src="@drawable/ic_launcher_background"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.514"
                 app:layout_constraintStart_toStartOf="parent"

@@ -10,6 +10,8 @@
         android:id="@+id/recyclerViewTrain"
         android:layout_width="301dp"
         android:layout_height="463dp"
+        android:orientation="horizontal"
+        tools:context="com.geeksforgeeks.horizontalrecyclerview.MainActivity"
         android:layout_marginStart="56dp"
         android:layout_marginEnd="55dp"
         android:layout_marginBottom="43dp"

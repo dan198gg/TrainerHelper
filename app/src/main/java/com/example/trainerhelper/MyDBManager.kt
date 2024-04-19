@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase
 import android.graphics.Bitmap
 import android.media.Image
 import android.widget.Toast
-import androidx.core.content.contentValuesOf
 import java.io.ByteArrayOutputStream
 
 
@@ -21,7 +20,7 @@ class MyDbManager(var context: Context) {
         fun closeDB(){
         myDbHelper.close()
     }
-    fun storeImg(imag:ModelClass, train: String){
+    fun storeImg1(imag:ModelClass, train: String){
         openDB()
         val bitmap:Bitmap=imag.img
         val byteArrayStream=ByteArrayOutputStream()
@@ -34,7 +33,7 @@ class MyDbManager(var context: Context) {
         db?.insert(BicepsTableDB.TABLE_NAME, null, cv)
         closeDB()
     }
-    fun insertDb(img: Bitmap, train: String) {
+    fun insertDb1(img: Bitmap, train: String) {
         openDB()
         var convert=img.toString()
         val values = ContentValues().apply {
@@ -45,7 +44,7 @@ class MyDbManager(var context: Context) {
         closeDB()
     }
 
-    fun readDB(): Cursor? {
+    fun readDB1(): Cursor? {
         var query: String = "SELECT * FROM ${BicepsTableDB.TABLE_NAME}"
         db = myDbHelper.readableDatabase
         var cursor: Cursor? = null
@@ -55,9 +54,9 @@ class MyDbManager(var context: Context) {
         return cursor
     }
 
-    fun updateDB(_id:String,
-                 img: Image,
-                 train: String):Int {
+    fun updateDB1(_id:String,
+                  img: Image,
+                  train: String):Int {
         var convert = img.toString()
         db = myDbHelper.writableDatabase
         var contentValues = ContentValues().apply {
@@ -66,6 +65,59 @@ class MyDbManager(var context: Context) {
         }
         var result=0
         result = db!!.update(BicepsTableDB.TABLE_NAME, contentValues, "_id=?", arrayOf(_id))
+        if (result == -1) {
+            Toast.makeText(context, "Fail!", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(context, "OK!", Toast.LENGTH_SHORT).show()
+        }
+        return result
+    }
+    fun storeImg2(imag:ModelClass, train: String){
+        openDB()
+        val bitmap:Bitmap=imag.img
+        val byteArrayStream=ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayStream)
+        val byteArray=byteArrayStream.toByteArray()
+        val cv=ContentValues().apply {
+            put(TritcepsTableDB.COLUMN_IMAGE_TRAIN,byteArray)
+            put(TritcepsTableDB.COLUMN_NAME_TRAIN,train)
+        }
+        db?.insert(TritcepsTableDB.TABLE_NAME, null, cv)
+        closeDB()
+    }
+    fun insertDb2(img: Bitmap, train: String) {
+        openDB()
+        var convert=img.toString()
+        val values = ContentValues().apply {
+            put(TritcepsTableDB.COLUMN_IMAGE_TRAIN,convert)
+            put(TritcepsTableDB.COLUMN_NAME_TRAIN,train)
+        }
+        db?.insert(TritcepsTableDB.TABLE_NAME, null, values)
+        closeDB()
+    }
+
+    fun readDB2(): Cursor? {
+        openDB()
+        var query: String = "SELECT * FROM ${TritcepsTableDB.TABLE_NAME}"
+        db = myDbHelper.readableDatabase
+        var cursor: Cursor? = null
+        if (db != null) {
+            cursor = db?.rawQuery(query, null)
+        }
+        return cursor
+    }
+
+    fun updateDB2(_id:String,
+                  img: Image,
+                  train: String):Int {
+        var convert = img.toString()
+        db = myDbHelper.writableDatabase
+        var contentValues = ContentValues().apply {
+            put(TritcepsTableDB.COLUMN_IMAGE_TRAIN, convert)
+            put(TritcepsTableDB.COLUMN_NAME_TRAIN,train)
+        }
+        var result=0
+        result = db!!.update(TritcepsTableDB.TABLE_NAME, contentValues, "_id=?", arrayOf(_id))
         if (result == -1) {
             Toast.makeText(context, "Fail!", Toast.LENGTH_SHORT).show()
         } else {

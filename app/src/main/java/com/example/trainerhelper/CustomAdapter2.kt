@@ -7,12 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintSet.Layout
 import androidx.recyclerview.widget.RecyclerView
 
     class CustomAdapter2(
         var context: Context,
         var img: ArrayList<Bitmap>,
-        var train:ArrayList<String>):
+        var trains:ArrayList<String>):
         RecyclerView.Adapter<CustomAdapter2.MyViewHolder2>() {
             inner class MyViewHolder2(itemView: View) : RecyclerView.ViewHolder(itemView) {
                 var image:ImageView
@@ -27,19 +28,19 @@ import androidx.recyclerview.widget.RecyclerView
             parent: ViewGroup,
             viewType: Int
         ): MyViewHolder2 {
+
             var inflater: LayoutInflater = LayoutInflater.from(context)
             var view:View=inflater.inflate(R.layout.train_row,parent,false)
+
             return MyViewHolder2(view)
         }
 
         override fun onBindViewHolder(holder: MyViewHolder2, position: Int) {
-            holder.image.buildDrawingCache()
-            var bmap = holder.image.getDrawingCache()
-            bmap=img[position]
-
+            holder.image.setImageBitmap(img[position])
+            holder.train.text=trains[position]
         }
 
         override fun getItemCount(): Int {
-            return train.size
+            return trains.size
         }
     }

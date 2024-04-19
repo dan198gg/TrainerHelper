@@ -38,6 +38,13 @@ class CustomAdapter(var context: Context,
         holder.muscule.text=muscules[position]
         holder.musculeRow.setOnClickListener {
             var intent1=Intent(context,TrainActivity::class.java)
+
+            if (holder.muscule.text=="Бицепс"){
+                intent1.putExtra("value",1)
+            }
+            if(holder.muscule.text=="Трицепс"){
+                intent1.putExtra("value",2)
+            }
             context.startActivity(intent1)
         }
     }
