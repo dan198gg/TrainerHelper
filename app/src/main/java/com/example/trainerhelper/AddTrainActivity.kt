@@ -39,6 +39,7 @@ class AddTrainActivity : AppCompatActivity() {
                     ), findViewById<EditText>(R.id.editNameTrain).text.toString()
                 )
                 val intent1 = Intent(this, TrainActivity::class.java)
+                intent1.putExtra("value",1)
                 startActivity(intent1)
                 finish()
             }
@@ -50,6 +51,7 @@ class AddTrainActivity : AppCompatActivity() {
                     ), findViewById<EditText>(R.id.editNameTrain).text.toString()
                 )
                 val intent1 = Intent(this, TrainActivity::class.java)
+                intent1.putExtra("value",2)
                 startActivity(intent1)
                 finish()
             }
@@ -75,7 +77,7 @@ class AddTrainActivity : AppCompatActivity() {
     }
     fun getData() {
         dbManager.openDB()
-        val getInt = intent.getIntExtra("value", 1)
+        val getInt = intent.getIntExtra("value2", 1)
         if (getInt == 1) {
             val cursor = dbManager.readDB1()
             TrainName = ArrayList()
@@ -88,7 +90,9 @@ class AddTrainActivity : AppCompatActivity() {
                     TrainImg.add(BitmapFactory.decodeByteArray(imgByteArray, 0, imgByteArray.size))
                     TrainID.add(cursor.getInt(0))
                 }
-            } else if (getInt == 2) {
+            }
+        }
+        if (getInt == 2) {
                 val cursor = dbManager.readDB2()
                 TrainName = ArrayList()
                 TrainImg = ArrayList()
@@ -112,7 +116,7 @@ class AddTrainActivity : AppCompatActivity() {
             }
         }
 
-    }
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,

@@ -26,10 +26,11 @@ class TrainActivity : AppCompatActivity() {
             if(intent.getIntExtra("value", 1)==1){
                 intent1.putExtra("value2",1)
             }
-            else if(intent1.getIntExtra("value",1)==2){
+            if(intent.getIntExtra("value",1)==2){
                 intent1.putExtra("value2",2)
             }
             startActivity(intent1)
+            finish()
 
         }
     }
@@ -51,6 +52,7 @@ class TrainActivity : AppCompatActivity() {
                     TrainID.add(cursor.getInt(0))
                 }
             }
+        }
             if (getInt == 2) {
                 Log.i("getInteegeg", getInt.toString())
                 val cursor = dbManager.readDB2()
@@ -74,7 +76,7 @@ class TrainActivity : AppCompatActivity() {
                 }
                 println()
             }
-        }
+
 
         }
     fun getRecycler() {
