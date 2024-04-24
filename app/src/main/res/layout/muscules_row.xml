@@ -26,7 +26,8 @@
 
             <TextView
                 android:id="@+id/textMuscule"
-                android:layout_width="wrap_content"
+                android:layout_width="300dp"
+                android:gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="1dp"
                 android:layout_marginTop="1dp"
@@ -34,7 +35,7 @@
                 android:backgroundTint="@color/white"
                 tools:text="бицепс"
                 android:textColor="@color/white"
-                android:textSize="50dp"
+                android:textSize="40dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

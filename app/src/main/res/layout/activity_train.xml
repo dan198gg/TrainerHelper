@@ -4,20 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
+    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
     tools:context=".TrainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewTrain"
-        android:layout_width="301dp"
-        android:layout_height="463dp"
-        android:orientation="horizontal"
-        tools:context="com.geeksforgeeks.horizontalrecyclerview.MainActivity"
-        android:layout_marginStart="56dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginBottom="43dp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonAddTrain"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewTrain"
+            android:layout_width="301dp"
+            android:layout_height="463dp"
+            android:layout_marginStart="56dp"
+            android:foregroundGravity="center_horizontal"
+            android:layout_marginEnd="55dp"
+            android:layout_marginBottom="43dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/buttonAddTrain"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:scrollbars="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:context="com.example.trainerhelper.horizontalrecyclerview.TrainActivity" />
 
     <TextView
         android:id="@+id/textView3"
@@ -44,4 +51,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

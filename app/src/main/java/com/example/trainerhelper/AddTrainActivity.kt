@@ -55,6 +55,30 @@ class AddTrainActivity : AppCompatActivity() {
                 startActivity(intent1)
                 finish()
             }
+            if(intent.getIntExtra("value2",1)==3) {
+                dbManager.storeImg3(
+                    ModelClass(
+                        findViewById<EditText>(R.id.editNameTrain).text.toString(),
+                        pickedBitMap!!
+                    ), findViewById<EditText>(R.id.editNameTrain).text.toString()
+                )
+                val intent1 = Intent(this, TrainActivity::class.java)
+                intent1.putExtra("value",3)
+                startActivity(intent1)
+                finish()
+            }
+            if(intent.getIntExtra("value2",1)==4) {
+                dbManager.storeImg4(
+                    ModelClass(
+                        findViewById<EditText>(R.id.editNameTrain).text.toString(),
+                        pickedBitMap!!
+                    ), findViewById<EditText>(R.id.editNameTrain).text.toString()
+                )
+                val intent1 = Intent(this, TrainActivity::class.java)
+                intent1.putExtra("value",4)
+                startActivity(intent1)
+                finish()
+            }
         }
     }
 //    fun chooseImage(view: View){
@@ -114,6 +138,34 @@ class AddTrainActivity : AppCompatActivity() {
                 }
                 println()
             }
+        if (getInt == 3) {
+            val cursor = dbManager.readDB3()
+            TrainName = ArrayList()
+            TrainImg = ArrayList()
+            TrainID = ArrayList()
+            if (cursor != null) {
+                while (cursor.moveToNext()) {
+                    TrainName.add(cursor.getString(2))
+                    val imgByteArray = cursor.getBlob(1)
+                    TrainImg.add(BitmapFactory.decodeByteArray(imgByteArray, 0, imgByteArray.size))
+                    TrainID.add(cursor.getInt(0))
+                }
+            }
+        }
+        if (getInt == 4) {
+            val cursor = dbManager.readDB4()
+            TrainName = ArrayList()
+            TrainImg = ArrayList()
+            TrainID = ArrayList()
+            if (cursor != null) {
+                while (cursor.moveToNext()) {
+                    TrainName.add(cursor.getString(2))
+                    val imgByteArray = cursor.getBlob(1)
+                    TrainImg.add(BitmapFactory.decodeByteArray(imgByteArray, 0, imgByteArray.size))
+                    TrainID.add(cursor.getInt(0))
+                }
+            }
+        }
         }
 
 

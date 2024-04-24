@@ -19,15 +19,23 @@ class TrainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_train)
         dbManager = MyDbManager(this)
-
+//        val layoutManager= LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+//        val myList = findViewById<RecyclerView>(R.id.recyclerViewTrain);
+//        myList.setLayoutManager(layoutManager)
         getRecycler()
         findViewById<Button>(R.id.buttonAddTrain).setOnClickListener {
             val intent1 = Intent(this, AddTrainActivity::class.java)
-            if(intent.getIntExtra("value", 1)==1){
-                intent1.putExtra("value2",1)
+            if (intent.getIntExtra("value", 1) == 1) {
+                intent1.putExtra("value2", 1)
             }
-            if(intent.getIntExtra("value",1)==2){
-                intent1.putExtra("value2",2)
+            if (intent.getIntExtra("value", 1) == 2) {
+                intent1.putExtra("value2", 2)
+            }
+            if (intent.getIntExtra("value",1)==3){
+                intent1.putExtra("value2",3)
+            }
+            if (intent.getIntExtra("value",1)==4){
+                intent1.putExtra("value2",4)
             }
             startActivity(intent1)
             finish()
@@ -37,7 +45,7 @@ class TrainActivity : AppCompatActivity() {
 
     fun getData() {
         dbManager.openDB()
-        val getInt = intent.getIntExtra("value",1)
+        val getInt = intent.getIntExtra("value", 1)
         if (getInt == 1) {
             Log.i("getInteegeg", getInt.toString())
             val cursor = dbManager.readDB1()
@@ -52,39 +60,87 @@ class TrainActivity : AppCompatActivity() {
                     TrainID.add(cursor.getInt(0))
                 }
             }
+            println()
         }
-            if (getInt == 2) {
-                Log.i("getInteegeg", getInt.toString())
-                val cursor = dbManager.readDB2()
-                TrainName = ArrayList()
-                TrainImg = ArrayList()
-                TrainID = ArrayList()
-                if (cursor != null) {
-                    while (cursor.moveToNext()) {
-                        TrainName.add(cursor.getString(2))
-                        val imgByteArray = cursor.getBlob(1)
-                        TrainImg.add(
-                            BitmapFactory.decodeByteArray(
-                                imgByteArray,
-                                0,
-                                imgByteArray.size
-                            )
+        if (getInt == 3) {
+            Log.i("getInteegeg", getInt.toString())
+
+            TrainName = ArrayList()
+            TrainImg = ArrayList()
+            TrainID = ArrayList()
+            val cursor = dbManager.readDB3()
+            if (cursor != null) {
+                while (cursor.moveToNext()) {
+                    TrainName.add(cursor.getString(2))
+                    val imgByteArray = cursor.getBlob(1)
+                    TrainImg.add(
+                        BitmapFactory.decodeByteArray(
+                            imgByteArray,
+                            0,
+                            imgByteArray.size
                         )
-                        TrainID.add(cursor.getInt(0))
-                    }
-
+                    )
+                    TrainID.add(cursor.getInt(0))
                 }
-                println()
             }
-
-
+            println()
         }
-    fun getRecycler() {
-        getData()
-        var recyclerView = findViewById<RecyclerView>(R.id.recyclerViewTrain)
+        if (getInt == 2) {
+            Log.i("getInteegeg", getInt.toString())
 
-        var customAdapter2 = CustomAdapter2(this, TrainImg, TrainName)
-        recyclerView.adapter = customAdapter2
-        recyclerView.layoutManager = LinearLayoutManager(this)
+            TrainName = ArrayList()
+            TrainImg = ArrayList()
+            TrainID = ArrayList()
+            val cursor = dbManager.readDB2()
+            if (cursor != null) {
+                while (cursor.moveToNext()) {
+                    TrainName.add(cursor.getString(2))
+                    val imgByteArray = cursor.getBlob(1)
+                    TrainImg.add(
+                        BitmapFactory.decodeByteArray(
+                            imgByteArray,
+                            0,
+                            imgByteArray.size
+                        )
+                    )
+                    TrainID.add(cursor.getInt(0))
+                }
+
+            }
+            println()
+        }
+        if (getInt == 4) {
+            Log.i("getInteegeg", getInt.toString())
+
+            TrainName = ArrayList()
+            TrainImg = ArrayList()
+            TrainID = ArrayList()
+            val cursor = dbManager.readDB4()
+            if (cursor != null) {
+                while (cursor.moveToNext()) {
+                    TrainName.add(cursor.getString(2))
+                    val imgByteArray = cursor.getBlob(1)
+                    TrainImg.add(
+                        BitmapFactory.decodeByteArray(
+                            imgByteArray,
+                            0,
+                            imgByteArray.size
+                        )
+                    )
+                    TrainID.add(cursor.getInt(0))
+                }
+            }
+            println()
+        }
+        }
+        fun getRecycler() {
+            getData()
+            var recyclerView = findViewById<RecyclerView>(R.id.recyclerViewTrain)
+            var customAdapter2 = CustomAdapter2(this, TrainImg, TrainName)
+            recyclerView.adapter = customAdapter2
+            recyclerView.layoutManager =
+                LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        }
     }
-}
+
+

@@ -45,6 +45,12 @@ class CustomAdapter(var context: Context,
             if(holder.muscule.text=="Трицепс"){
                 intent1.putExtra("value",2)
             }
+            if(holder.muscule.text=="Плечи"){
+                intent1.putExtra("value",3)
+            }
+            if(holder.muscule.text=="Грудные мышцы"){
+                intent1.putExtra("value",4)
+            }
             context.startActivity(intent1)
         }
     }

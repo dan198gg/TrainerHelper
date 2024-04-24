@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 
 class MainActivity : AppCompatActivity() {
-    var muscules = arrayListOf<String>("Бицепс", "Трицепс")
+    var muscules = arrayListOf<String>("Бицепс", "Трицепс","Плечи", "Грудные мышцы")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

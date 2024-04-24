@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintSet.Layout
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
     class CustomAdapter2(
@@ -18,7 +20,7 @@ import androidx.recyclerview.widget.RecyclerView
             inner class MyViewHolder2(itemView: View) : RecyclerView.ViewHolder(itemView) {
                 var image:ImageView
                 var train:TextView
-                init {
+                init {   
                     image=itemView.findViewById(R.id.imageTrain)
                     train=itemView.findViewById(R.id.textTrain)
                 }

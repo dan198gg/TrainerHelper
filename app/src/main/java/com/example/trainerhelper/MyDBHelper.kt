@@ -9,6 +9,8 @@ class MyDbHelper(context: Context): SQLiteOpenHelper(context,MyDBInfo.DB_NAME,nu
         if(db!=null){
             db.execSQL(BicepsTableDB.CREATE_TABLE1)
             db.execSQL(TritcepsTableDB.CREATE_TABLE2)
+            db.execSQL(ShouldersTableDB.CREATE_TABLE3)
+            db.execSQL(PectoralTableDB.CREATE_TABLE4)
         }
     }
 
