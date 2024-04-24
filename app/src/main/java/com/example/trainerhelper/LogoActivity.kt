@@ -11,6 +11,8 @@ class LogoActivity : AppCompatActivity(),Animation.AnimationListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_logo)
+        val myDbManager=MyDbManager(this)
+        myDbManager.openDB()
         val img=findViewById<ImageView>(R.id.imageLogo)
         var anim=AnimationUtils.loadAnimation(this,R.anim.fading_in)
         anim.setAnimationListener(this)
