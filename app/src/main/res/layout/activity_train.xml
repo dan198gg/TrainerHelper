@@ -4,27 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     android:orientation="horizontal"
     app:layoutManager="android.support.v7.widget.LinearLayoutManager"
     tools:context=".TrainActivity">
 
 
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewTrain"
-            android:layout_width="301dp"
-            android:layout_height="463dp"
-            android:layout_marginStart="56dp"
-            android:foregroundGravity="center_horizontal"
-            android:layout_marginEnd="55dp"
-            android:layout_marginBottom="43dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/buttonAddTrain"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:scrollbars="horizontal"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:context="com.example.trainerhelper.horizontalrecyclerview.TrainActivity" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewTrain"
+        android:layout_width="301dp"
+        android:layout_height="463dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="28dp"
+        android:foregroundGravity="center_horizontal"
+        android:orientation="horizontal"
+        android:scrollbars="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAddTrain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:context="com.example.trainerhelper.horizontalrecyclerview.TrainActivity" />
 
     <TextView
         android:id="@+id/textView3"
@@ -32,9 +32,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="176dp"
         android:layout_marginTop="59dp"
+        android:textSize="25dp"
+        android:textColor="@color/white"
         android:layout_marginEnd="177dp"
         android:layout_marginBottom="56dp"
-        android:text="TextView"
+        android:text="Упражнения"
+        android:textStyle="bold"
+
         app:layout_constraintBottom_toTopOf="@+id/recyclerViewTrain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,6 +51,7 @@
         android:layout_marginStart="160dp"
         android:layout_marginEnd="160dp"
         android:layout_marginBottom="43dp"
+        android:backgroundTint="#B5963C"
         android:text="@string/addTrain"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

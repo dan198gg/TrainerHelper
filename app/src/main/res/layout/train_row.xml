@@ -5,54 +5,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
+    android:gravity="center"
     android:scrollbars="horizontal"
+
 
     >
 
     <androidx.cardview.widget.CardView
         android:layout_width="251dp"
         android:layout_height="457dp"
-        android:layout_gravity="center"
-        android:foregroundGravity="center"
-        android:gravity="center"
 
-        android:layout_marginLeft="75dp"
+
+
         app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-        android:layout_marginRight="75dp">
+        android:layout_gravity="center"
+
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:foregroundGravity="center"
+            android:layout_gravity="center"
+            android:background="#B5963C">
 
             <ImageView
                 android:id="@+id/imageTrain"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:layout_marginStart="84dp"
                 android:layout_marginTop="64dp"
-                android:layout_marginEnd="84dp"
-                tools:src="@drawable/ic_launcher_background"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.514"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_launcher_background" />
 
             <TextView
                 android:id="@+id/textTrain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="119dp"
-                android:layout_marginTop="111dp"
-                android:layout_marginEnd="119dp"
-                android:layout_marginBottom="128dp"
                 android:text="Отжимания"
                 android:textSize="25dp"
+                android:gravity="center"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageTrain"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintTop_toBottomOf="@+id/imageTrain" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
